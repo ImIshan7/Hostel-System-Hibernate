@@ -1,0 +1,65 @@
+.backgroundcolor{
+    -fx-background-color: linear-gradient(to right bottom , #192940,#2C4E70);
+    -fx-background-radius: 30px;
+}
+.buttonColour {
+    -fx-background-color: linear-gradient(to right bottom, #085acc, #4095e8);
+}
+.topPaneBackgroundcolor{
+    -fx-background-color: linear-gradient(to right bottom , #024c7e, #25374b);
+
+}
+.specialTextColour{
+    -fx-background-color: linear-gradient(to right bottom , #38acff, #c606ff);
+    -fx-background-radius: 30px;
+
+}
+
+.topPaneBackground {
+    -fx-background-color: linear-gradient(to right bottom, #024c7e, #ab7f27);
+    -fx-background-radius: 30px;
+}
+.specialText{
+    -fx-background-color: linear-gradient(to right bottom , #38acff, #c606ff);
+
+
+}
+
+.topPaneBackground2 {
+    -fx-background-color: linear-gradient(to right bottom, #bd1584, #02307a);
+    -fx-background-radius: 20px;
+}
+
+.topPaneBackground3 {
+    -fx-background-color: linear-gradient(to right bottom, #bd1584, #02307a);
+
+}
+
+.topPaneBackground4 {
+    -fx-background-color: linear-gradient(to right bottom, #bd1584, #02307a);
+    -fx-background-radius: 30px;
+}
+
+.topPaneBackground5 {
+    -fx-background-color: linear-gradient(to right bottom, #000000, #424141);
+    -fx-background-radius: 30px;
+}
+
+.topPaneBackground6 {
+    -fx-background-color: linear-gradient(to right bottom, #59B7D3, #335081);
+    -fx-background-radius: 32px;
+}
+
+.topPaneBackground7 {
+    -fx-background-color: linear-gradient(to right bottom, #090B0B, #9E2DBE, #00D3FF);
+    -fx-background-radius: 32px;
+}
+
+.buttonColour2{
+    -fx-background-color: linear-gradient(to right bottom, #599bff, #102d44);
+}
+
+.topPaneBackground50 {
+    -fx-background-color: linear-gradient(to right bottom, #000000, #424141);
+
+}

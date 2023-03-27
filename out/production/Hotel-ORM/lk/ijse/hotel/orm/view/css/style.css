@@ -1,0 +1,137 @@
+.title-text {
+    -fx-font : 94px "Brush Script MT";
+    -fx-padding : 10;
+    -fx-background-color : #ffffff;
+}
+
+.title-text1 {
+    -fx-font : 94px "Brush Script MT";
+    -fx-padding : 10;
+    -fx-background-color : #20B2AAFF;
+}
+
+.circle{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+}
+
+.circleWhite{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 30px;
+}
+
+.circleBlack{
+    -fx-background-color: #212121;
+    -fx-background-radius: 00px;
+}
+
+
+
+
+.circleAdd{
+    -fx-background-color: #001acc;
+    -fx-background-radius: 40px;
+}
+
+
+.circleDelete{
+    -fx-background-color: #d32706ff;
+    -fx-background-radius: 40px;
+}
+.circleUpdate{
+    -fx-background-color: #20B2AA;
+    -fx-background-radius: 40px;
+
+}
+
+
+
+.circleSerach{
+    -fx-background-color: #fd8b05;
+    -fx-background-radius: 40px;
+}
+
+.circleSerach2{
+    -fx-background-color: #fd8b05;
+}
+
+.circle2{
+    -fx-background-color: #D9D9D9;
+    -fx-background-radius: 20px;
+}
+
+.circleAncapane{
+    -fx-background-color: #ffae00;
+    -fx-background-radius: 30px;
+}
+
+
+.circle4{
+    -fx-background-color: #D9D9D9;
+    -fx-background-radius: 30px;
+}
+
+.circle3{
+    -fx-background-color: #D9D9D9;
+}
+
+.borderCurve{
+    -fx-border-radius: 20;
+}
+
+.box {
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 10px;
+}
+.payload {
+    -fx-hgap: 20px;
+    -fx-padding: 40px;
+
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 50px;
+
+    -fx-border-radius: 50px;
+    -fx-border-width: 5px;
+    -fx-border-color: black;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+
+.sidebarItem:hover{
+    -fx-background-color: linear-gradient(to right bottom , #38acff, #c606ff);
+        -fx-background-radius: 40px;
+}
+
+.sidebarSign:hover{
+    -fx-background-color:ORANGE;
+    -fx-background-radius: 40px;
+}
+
+
+.sidebaritem:hover{
+    -fx-background-color: WHITE;
+    -fx-border-color: #0aa119;
+    -fx-border-width: 0px 0px 0px 6px;
+}
+.button:focused{
+    -fx-background-color: #3a3737;
+    -fx-background-radius: 40px;
+}
+
+.sidebarSign1:hover{
+    -fx-background-color: #fd8b05;
+    -fx-background-radius: 40px;
+}
+
+.circleWhite2{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 35px;
+}
+
+.circle34{
+    -fx-background-color: #D9D9D9;
+}
+
+.sidemenu:hover {
+    -fx-background-color: linear-gradient(to right bottom, #282727, #212121);
+    -fx-background-radius: 40px;
+}

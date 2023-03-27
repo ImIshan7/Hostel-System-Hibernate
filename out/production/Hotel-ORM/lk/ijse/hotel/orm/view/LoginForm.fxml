@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Login" prefHeight="768.0" prefWidth="1366.0" styleClass="buttonColour" stylesheets="@css/MetropolitantColourSchema.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotel.orm.controller.LoginFormController">
+   <children>
+      <ImageView fitHeight="799.0" fitWidth="770.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/7932598.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="Loginform" layoutX="815.0" layoutY="72.0" prefHeight="644.0" prefWidth="513.0" styleClass="circleWhite2" stylesheets="@css/style.css">
+         <children>
+            <Label layoutX="38.0" layoutY="36.0" prefHeight="77.0" prefWidth="187.0" text="HELLO!">
+               <font>
+                  <Font name="System Bold" size="53.0" />
+               </font>
+            </Label>
+            <Label layoutX="84.0" layoutY="113.0" prefHeight="77.0" prefWidth="314.0" text="WELLCOME">
+               <font>
+                  <Font name="System Bold" size="41.0" />
+               </font>
+            </Label>
+            <Label layoutX="31.0" layoutY="190.0" prefHeight="54.0" prefWidth="314.0" text="Conutinue To Sign in,">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="54.0" fitWidth="58.0" layoutX="55.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="54.0" fitWidth="58.0" layoutX="65.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/icons8-user-male.gif" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtusername" layoutX="133.0" layoutY="280.0" onAction="#btnusernameOnAction" prefHeight="37.0" prefWidth="267.0" promptText="User Name" styleClass="topPaneBackground4" stylesheets="@css/style.css">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="54.0" fitWidth="58.0" layoutX="65.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/icons8-lock.gif" />
+               </image>
+            </ImageView>
+            <Button fx:id="nextID" layoutX="334.0" layoutY="464.0" mnemonicParsing="false" onAction="#btnNextOnAction" prefHeight="44.0" prefWidth="100.0" styleClass="circleUpdate" stylesheets="@css/style.css" text="Next -&gt;">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Button>
+            <TextField fx:id="txtPassword" layoutX="133.0" layoutY="376.0" onAction="#btnPasswordOnAction" prefHeight="37.0" prefWidth="267.0" promptText="Password" styleClass="topPaneBackground4" stylesheets="@css/MetropolitantColourSchema.css">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="77.0" fitWidth="77.0" layoutX="405.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/icons8-hostel-64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

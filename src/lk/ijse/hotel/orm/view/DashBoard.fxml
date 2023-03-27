@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="DashBoard" prefHeight="768.0" prefWidth="1366.0" styleClass="buttonColour" stylesheets="@css/MetropolitantColourSchema.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotel.orm.controller.DashBoardController">
+   <children>
+      <AnchorPane fx:id="MainMenuID" layoutX="4.0" layoutY="94.0" prefHeight="530.0" prefWidth="319.0" styleClass="topPaneBackground2" stylesheets="@css/MetropolitantColourSchema.css">
+         <children>
+            <Button layoutX="101.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnStudentOnAction" prefHeight="49.0" prefWidth="153.0" styleClass="specialTextColour" stylesheets="@css/style.css" text="Student" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="27.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/icons8-schoolboy-at-a-desk-90.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="101.0" layoutY="134.0" mnemonicParsing="false" onAction="#btnRoomOnAction" prefHeight="49.0" prefWidth="153.0" styleClass="specialTextColour" stylesheets="@css/style.css" text="Room" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="27.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/taxi-hotel-icon.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="101.0" layoutY="230.0" mnemonicParsing="false" onAction="#btnBookOnAction" prefHeight="49.0" prefWidth="153.0" styleClass="specialTextColour" stylesheets="@css/style.css" text="Room" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="27.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/taxi-hotel-icon.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="101.0" layoutY="322.0" mnemonicParsing="false" onAction="#btnAboutOnAction" prefHeight="49.0" prefWidth="153.0" styleClass="specialTextColour" stylesheets="@css/style.css" text="About" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="27.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/icons8-info-96.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="101.0" layoutY="427.0" mnemonicParsing="false" onAction="#btnexistOnAction" prefHeight="49.0" prefWidth="153.0" styleClass="specialTextColour" stylesheets="@css/style.css" text="Exist" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="27.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/block.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <AnchorPane fx:id="SupDashboard" layoutX="329.0" layoutY="35.0" prefHeight="674.0" prefWidth="1009.0" styleClass="backgroundcolor" stylesheets="@css/MetropolitantColourSchema.css">
+         <children>
+            <Label layoutX="282.0" layoutY="25.0" prefHeight="51.0" prefWidth="439.0" text="WELLCOME  TO D24 HOSTEL" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="31.0" layoutY="26.0" prefHeight="61.0" prefWidth="265.0" text="MAIN MENU" textFill="#fff0f0">
+         <font>
+            <Font name="Arial Black" size="40.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
