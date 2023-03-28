@@ -38,6 +38,20 @@ private static AnchorPane DashBoard;
                 break;
         }
 
+        switch (routes) {
+            case RESERVATION:
+                window.setTitle("RESERVATION");
+                initUI("Reservation.fxml");
+                break;
+        }
+
+        switch (routes) {
+            case LOGIN:
+                window.setTitle("LOGIN");
+                initUI("LoginForm.fxml");
+                break;
+        }
+
     }
 
     private static void initUI(String location) throws IOException {

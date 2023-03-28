@@ -14,13 +14,11 @@ public class DashBoardController {
     @FXML
     private AnchorPane SupDashboard;
 
-    @FXML
-    void btnAboutOnAction(ActionEvent event) {
-
-    }
 
     @FXML
-    void btnBookOnAction(ActionEvent event) {
+    void btnBookOnAction(ActionEvent event) throws IOException {
+
+        Navigation.navigation(Routes.RESERVATION,SupDashboard);
 
     }
 
@@ -43,4 +41,8 @@ public class DashBoardController {
 
     }
 
+    public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
+
+        Navigation.navigation(Routes.LOGIN,DashBoard);
+    }
 }
