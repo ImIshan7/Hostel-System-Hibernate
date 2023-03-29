@@ -23,20 +23,40 @@ public class ReservationDTO {
         this.status = status;
     }
 
+    public String getResID() {
+        return resID;
+    }
+
     public void setResID(String resID) {
         this.resID = resID;
+    }
+
+    public Date getDate() {
+        return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
     }
 
+    public Student getStudent() {
+        return student;
+    }
+
     public void setStudent(Student student) {
         this.student = student;
     }
 
+    public Room getRoom() {
+        return room;
+    }
+
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public void setStatus(String status) {

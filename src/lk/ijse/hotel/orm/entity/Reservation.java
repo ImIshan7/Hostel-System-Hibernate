@@ -25,7 +25,7 @@ public class Reservation {
     @Column(name = "status")
     private String status;
 
-    public Reservation() {
+    public Reservation(String resId, Date date, String status) {
     }
 
     public Reservation(String resID, Date date, Student student, Room room, String status) {
@@ -33,6 +33,51 @@ public class Reservation {
         this.date = date;
         this.student = student;
         this.room = room;
+        this.status = status;
+    }
+
+    public Reservation() {
+
+    }
+
+
+    public String getResID() {
+        return resID;
+    }
+
+    public void setResID(String resID) {
+        this.resID = resID;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
         this.status = status;
     }
 

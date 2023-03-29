@@ -42,6 +42,10 @@ public class Student {
         this.gender = gender;
     }
 
+    public String getStudentId() {
+        return id;
+    }
+
     public String getId() {
         return id;
     }
