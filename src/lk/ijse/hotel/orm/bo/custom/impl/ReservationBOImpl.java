@@ -11,7 +11,7 @@ import lk.ijse.hotel.orm.dto.StudentDTO;
 import lk.ijse.hotel.orm.entity.Reservation;
 import lk.ijse.hotel.orm.entity.Room;
 import lk.ijse.hotel.orm.entity.Student;
-import lk.ijse.hotel.orm.util.SessionFactoryConfiguration;
+import lk.ijse.hotel.orm.util.SessionFactoryConfiguaration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -49,8 +49,9 @@ public class ReservationBOImpl implements ReservationBO {
     @Override
     public boolean saveReservation(ReservationDTO reservationDTO) throws Exception {
 
+
+        session= SessionFactoryConfiguaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session= SessionFactoryConfiguration.getInstance().getSession();
         try{
             reservationDAO.setSession(session);
             reservationDAO.save(
@@ -73,8 +74,9 @@ public class ReservationBOImpl implements ReservationBO {
 
     @Override
     public boolean updateReservation(ReservationDTO reservationDTO) throws Exception {
+
+        session= SessionFactoryConfiguaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session= SessionFactoryConfiguration.getInstance().getSession();
         try{
             reservationDAO.setSession(session);
             reservationDAO.update(
@@ -98,7 +100,7 @@ public class ReservationBOImpl implements ReservationBO {
     @Override
     public StudentDTO getStudent(String id) throws Exception {
 
-        session= SessionFactoryConfiguration.getInstance().getSession();
+        session= SessionFactoryConfiguaration.getInstance().getSession();
         try {
             studentDAO.setSession(session);
             Student student = studentDAO.getObject(id);
@@ -119,7 +121,7 @@ public class ReservationBOImpl implements ReservationBO {
 
     @Override
     public RoomDTO getRoom(String id) throws Exception {
-        session= SessionFactoryConfiguration.getInstance().getSession();
+        session= SessionFactoryConfiguaration.getInstance().getSession();
         try {
             roomDAO.setSession(session);
             Room room = roomDAO.getObject(id);
@@ -141,8 +143,9 @@ public class ReservationBOImpl implements ReservationBO {
 
     @Override
     public boolean deleteReservation(ReservationDTO reservationDTO) throws Exception {
+
+        session= SessionFactoryConfiguaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session= SessionFactoryConfiguration.getInstance().getSession();
         try{
             reservationDAO.setSession(session);
             reservationDAO.delete(

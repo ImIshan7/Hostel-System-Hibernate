@@ -1,8 +1,10 @@
+package lk.ijse.hotel.orm;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import lk.ijse.hotel.orm.util.SessionFactoryConfiguration;
+import lk.ijse.hotel.orm.util.SessionFactoryConfiguaration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -19,10 +21,10 @@ public class AppInitializer extends Application {
     public void start(Stage primaryStage) throws IOException {
 
 
-       /* Session session = SessionFactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();*/
+        Session session = SessionFactoryConfiguaration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
 
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("lk/ijse/hotel/orm/view/LoginForm.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/hotel/orm/view/LoginForm.fxml"))));
         primaryStage.setTitle("D24 HOSTEL");
         primaryStage.show();
     }

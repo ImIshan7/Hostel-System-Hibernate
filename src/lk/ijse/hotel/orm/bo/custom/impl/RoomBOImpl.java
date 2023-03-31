@@ -5,7 +5,7 @@ import lk.ijse.hotel.orm.dao.DAOFactory;
 import lk.ijse.hotel.orm.dao.custom.RoomDAO;
 import lk.ijse.hotel.orm.dto.RoomDTO;
 import lk.ijse.hotel.orm.entity.Room;
-import lk.ijse.hotel.orm.util.SessionFactoryConfiguration;
+import lk.ijse.hotel.orm.util.SessionFactoryConfiguaration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -40,8 +40,9 @@ public class RoomBOImpl implements RoomBO {
 
     @Override
     public boolean saveRoom(RoomDTO roomDTO) throws Exception {
+
+        session= SessionFactoryConfiguaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session= SessionFactoryConfiguration.getInstance().getSession();
         try{
             roomDAO.setSession(session);
             roomDAO.save(
@@ -64,8 +65,9 @@ public class RoomBOImpl implements RoomBO {
     @Override
     public boolean updateRoom(RoomDTO roomDTO) throws Exception {
 
+
+        session= SessionFactoryConfiguaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session= SessionFactoryConfiguration.getInstance().getSession();
 
         try {
             roomDAO.setSession(session);
@@ -89,8 +91,9 @@ public class RoomBOImpl implements RoomBO {
     @Override
     public boolean deleteRoom(RoomDTO roomDTO) throws Exception {
 
+
+        session= SessionFactoryConfiguaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session= SessionFactoryConfiguration.getInstance().getSession();
 
         try {
             roomDAO.setSession(session);

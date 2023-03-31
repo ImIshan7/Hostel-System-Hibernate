@@ -5,7 +5,7 @@ import lk.ijse.hotel.orm.dao.DAOFactory;
 import lk.ijse.hotel.orm.dao.custom.UsersDAO;
 import lk.ijse.hotel.orm.dto.UsersDTO;
 import lk.ijse.hotel.orm.entity.Users;
-import lk.ijse.hotel.orm.util.SessionFactoryConfiguration;
+import lk.ijse.hotel.orm.util.SessionFactoryConfiguaration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -18,6 +18,7 @@ public class UsersBOImpl implements UsersBO {
     private Session session;
     @Override
     public List<UsersDTO> loadAll() throws Exception {
+        session= SessionFactoryConfiguaration.getInstance().getSession();
 
         List<Users> users = userDAO.loadAll();
         List<UsersDTO> usersDTOS=new ArrayList<>();
@@ -41,8 +42,8 @@ public class UsersBOImpl implements UsersBO {
     @Override
     public boolean saveUsers(UsersDTO usersDTO) throws Exception {
 
+        session= SessionFactoryConfiguaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session= SessionFactoryConfiguration.getInstance().getSession();
         try{
             userDAO.setSession(session);
             userDAO.save(
@@ -66,8 +67,9 @@ public class UsersBOImpl implements UsersBO {
 
     @Override
     public boolean updateUsers(UsersDTO usersDTO) throws Exception {
+
+        session= SessionFactoryConfiguaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session= SessionFactoryConfiguration.getInstance().getSession();
 
         try {
             userDAO.setSession(session);
@@ -92,8 +94,9 @@ public class UsersBOImpl implements UsersBO {
 
     @Override
     public boolean deleteUsers(UsersDTO usersDTO) throws Exception {
+        session= SessionFactoryConfiguaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session= SessionFactoryConfiguration.getInstance().getSession();
+
 
         try {
             userDAO.setSession(session);

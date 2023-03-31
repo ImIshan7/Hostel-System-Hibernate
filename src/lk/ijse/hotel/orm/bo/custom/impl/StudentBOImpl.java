@@ -5,7 +5,7 @@ import lk.ijse.hotel.orm.dao.DAOFactory;
 import lk.ijse.hotel.orm.dao.custom.StudentDAO;
 import lk.ijse.hotel.orm.dto.StudentDTO;
 import lk.ijse.hotel.orm.entity.Student;
-import lk.ijse.hotel.orm.util.SessionFactoryConfiguration;
+import lk.ijse.hotel.orm.util.SessionFactoryConfiguaration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -18,9 +18,10 @@ public class StudentBOImpl implements StudentBO {
     StudentDAO studentDAO= (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.Student);
 
     private Session session;
+
     @Override
     public List<StudentDTO> loadAll() throws Exception {
-
+        session= SessionFactoryConfiguaration.getInstance().getSession();
         List<Student> students = studentDAO.loadAll();
         List<StudentDTO>studentDTOS=new ArrayList<>();
 
@@ -42,8 +43,9 @@ public class StudentBOImpl implements StudentBO {
 
     @Override
     public boolean saveStudent(StudentDTO studentDTO) throws Exception {
+        session=SessionFactoryConfiguaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session= SessionFactoryConfiguration.getInstance().getSession();
+
         try{
             studentDAO.setSession(session);
             studentDAO.save(
@@ -68,7 +70,7 @@ public class StudentBOImpl implements StudentBO {
     public boolean updateStudent(StudentDTO studentDTO) throws Exception {
 
 
-        session=SessionFactoryConfiguration.getInstance().getSession();
+        session=SessionFactoryConfiguaration.getInstance().getSession();
         Transaction transaction=session.beginTransaction();
         try {
             studentDAO.setSession(session);
@@ -93,8 +95,9 @@ public class StudentBOImpl implements StudentBO {
 
     @Override
     public boolean deleteStudent(StudentDTO studentDTO) throws Exception {
+        session=SessionFactoryConfiguaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        session=SessionFactoryConfiguration.getInstance().getSession();
+
 
         try {
             studentDAO.setSession(session);

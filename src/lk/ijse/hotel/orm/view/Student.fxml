@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="Student" prefHeight="674.0" prefWidth="1009.0" styleClass="backgroundcolor" stylesheets="@css/MetropolitantColourSchema.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotel.orm.controller.StudentController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="25.0" prefHeight="625.0" prefWidth="368.0" styleClass="topPaneBackground6" stylesheets="@css/MetropolitantColourSchema.css">
@@ -93,7 +92,7 @@
             <TableColumn fx:id="ColStudentAge" prefWidth="83.0" text="Age" />
         </columns>
       </TableView>
-      <Button layoutX="405.0" layoutY="574.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="44.0" prefWidth="126.0" styleClass="circleAdd" stylesheets="@css/style.css" text="    Save" textFill="WHITE">
+      <Button fx:id="btnsave" layoutX="405.0" layoutY="574.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="44.0" prefWidth="126.0" styleClass="circleAdd" stylesheets="@css/style.css" text="    Save" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -103,7 +102,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="698.0" layoutY="575.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="44.0" prefWidth="126.0" styleClass="circleDelete" stylesheets="@css/style.css" text="      Delete" textFill="#fffbfb">
+      <Button fx:id="btnDelete" layoutX="698.0" layoutY="575.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="44.0" prefWidth="126.0" styleClass="circleDelete" stylesheets="@css/style.css" text="      Delete" textFill="#fffbfb">
          <font>
             <Font size="18.0" />
          </font>

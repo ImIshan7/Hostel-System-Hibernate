@@ -9,7 +9,6 @@ import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
 
-
     private Session session;
     @Override
     public List<Student> loadAll() throws Exception {
