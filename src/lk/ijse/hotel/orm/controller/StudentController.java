@@ -97,13 +97,13 @@ public class StudentController {
     public void initialize() throws Exception {
 
 
-        iniUI();
+        //iniUI();
         loadAllStudents();
 
-        ColID.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        ColID.setCellValueFactory(new PropertyValueFactory<>("id"));
         ColStudentName.setCellValueFactory(new PropertyValueFactory<>("name"));
         ColStudentAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        ColStudentContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
+        ColStudentContact.setCellValueFactory(new PropertyValueFactory<>("contactNo"));
         ColStudentDOB.setCellValueFactory(new PropertyValueFactory<>("dob"));
         ColStudentAge.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
@@ -111,13 +111,18 @@ public class StudentController {
     }
 
 
-    public void iniUI(){
+    public void clear()
+
+    {
         txtStudentID.clear();
         txtStudentName.clear();
         txtStudentAddress.clear();
         txtStudentContact.clear();
         txtStudentDOB.clear();
         txtStudentAge.clear();
+    }
+
+    public void iniUI(){
         txtStudentID.setDisable(true);
         txtStudentName.setDisable(true);
         txtStudentAddress.setDisable(true);
@@ -183,29 +188,32 @@ public class StudentController {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) throws Exception {
-
-        Alert alert = new Alert(Alert.AlertType.WARNING, "Are You Sure You Want To Delete These Customer ?", ButtonType.YES, ButtonType.NO);
-        Optional<ButtonType> result = alert.showAndWait();
         StudentDTO studentDTO=new StudentDTO();
         String id = tblStudent.getSelectionModel().getSelectedItem().getId();
 
-        try {
-            boolean isDeleted =studentBO.deleteStudent(studentDTO);
-            tblStudent.getItems().remove(tblStudent.getSelectionModel().getSelectedItem());
-            tblStudent.getSelectionModel().clearSelection();
 
-            if (isDeleted) {
+        Alert alert = new Alert(Alert.AlertType.WARNING, "Are You Sure You Want To Delete These Customer ?", ButtonType.YES, ButtonType.NO);
+        Optional<ButtonType> result = alert.showAndWait();
 
-                new Alert(Alert.AlertType.CONFIRMATION, "Customer Deleted!").show();
-
+        if (result.get()==ButtonType.YES){
+            try {
+              boolean isDeleted =  studentBO.deleteStudent(studentDTO);
+                tblStudent.getItems().remove(tblStudent.getSelectionModel().getSelectedItem());
+                tblStudent.getSelectionModel().clearSelection();
                 iniUI();
-                 initialize();
+                if (isDeleted) {
 
-            } else new Alert(Alert.AlertType.WARNING, "Something happened!").show();
+                    new Alert(Alert.AlertType.CONFIRMATION, "Customer Deleted!").show();
 
-        }catch (Exception e){
 
+
+                } else new Alert(Alert.AlertType.WARNING, "Something happened!").show();
+
+            }catch (Exception e){
+
+            }
         }
+
 
     }
 

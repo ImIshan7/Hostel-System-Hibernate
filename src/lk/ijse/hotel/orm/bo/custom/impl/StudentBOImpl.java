@@ -22,6 +22,7 @@ public class StudentBOImpl implements StudentBO {
     @Override
     public List<StudentDTO> loadAll() throws Exception {
         session= SessionFactoryConfiguaration.getInstance().getSession();
+        studentDAO.setSession(session);
         List<Student> students = studentDAO.loadAll();
         List<StudentDTO>studentDTOS=new ArrayList<>();
 
@@ -59,6 +60,7 @@ public class StudentBOImpl implements StudentBO {
                     ));
             transaction.commit();
             session.close();
+            return true;
         }catch (Exception e){
             transaction.rollback();
         }
@@ -112,6 +114,7 @@ public class StudentBOImpl implements StudentBO {
                     ));
             transaction.commit();
             session.close();
+            return true;
         }catch (Exception e){
             transaction.rollback();
         }
