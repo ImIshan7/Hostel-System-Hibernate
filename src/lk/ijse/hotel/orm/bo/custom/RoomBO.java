@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RoomBO extends SuperBO {
 
-    List<RoomDTO> loadAll() throws Exception;
+    List<RoomDTO> loadAllRoom() throws Exception;
 
     boolean saveRoom(RoomDTO roomDTO) throws Exception;
 

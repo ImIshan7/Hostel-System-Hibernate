@@ -12,7 +12,7 @@ public class StudentDAOImpl implements StudentDAO {
     private Session session;
     @Override
     public List<Student> loadAll() throws Exception {
-        String sqlQuery="From Student";
+        String sqlQuery="From Student ";
         Query query = session.createQuery(sqlQuery);
         List list = query.list();
         session.close();

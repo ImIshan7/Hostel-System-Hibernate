@@ -112,34 +112,44 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <TextField fx:id="txtSerach" layoutX="723.0" layoutY="63.0" prefHeight="35.0" prefWidth="267.0" promptText="Serach" styleClass="circleWhite" stylesheets="@css/style.css">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </TextField>
-      <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="420.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView disable="true" fitHeight="35.0" fitWidth="42.0" layoutX="420.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons8-add-new-96.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="706.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView disable="true" fitHeight="35.0" fitWidth="42.0" layoutX="706.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons8-cancel-96.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="857.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView disable="true" fitHeight="35.0" fitWidth="42.0" layoutX="857.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons8-back-arrow-96.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="563.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView disable="true" fitHeight="35.0" fitWidth="42.0" layoutX="563.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons8-available-updates-64.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="949.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="856.0" layoutY="45.0" prefHeight="34.0" prefWidth="148.0" text="D24 HOSTEL" textFill="#00b2ff">
+         <font>
+            <Font name="Arial Black" size="21.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="44.0" fitWidth="42.0" layoutX="814.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@assets/icons8-search.gif" />
+            <Image url="@assets/icons8-hostel-64.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="425.0" layoutY="27.0" prefHeight="61.0" prefWidth="167.0" text="STUDENT" textFill="#0eff01">
+         <font>
+            <Font name="Book Antiqua Bold" size="28.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="44.0" fitWidth="42.0" layoutX="587.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/icons8-schoolboy-at-a-desk-90.png" />
          </image>
       </ImageView>
    </children>

@@ -18,8 +18,9 @@ public class RoomBOImpl implements RoomBO {
 
     private Session session;
     @Override
-    public List<RoomDTO> loadAll() throws Exception {
-
+    public List<RoomDTO> loadAllRoom() throws Exception {
+        session= SessionFactoryConfiguaration.getInstance().getSession();
+        roomDAO.setSession(session);
         List<Room> rooms = roomDAO.loadAll();
         List<RoomDTO> roomDTOS=new ArrayList<>();
 
@@ -55,8 +56,11 @@ public class RoomBOImpl implements RoomBO {
             );
             transaction.commit();
             session.close();
+
+            return true;
         }catch (Exception e){
             transaction.rollback();
+            session.close();
         }
 
         return false;
@@ -81,6 +85,8 @@ public class RoomBOImpl implements RoomBO {
             );
             transaction.commit();
             session.close();
+            return true;
+
         }catch (Exception e){
             transaction.rollback();
         }
@@ -107,8 +113,12 @@ public class RoomBOImpl implements RoomBO {
             );
             transaction.commit();
             session.close();
+
+            return true;
+
         }catch (Exception e){
             transaction.rollback();
+            session.close();
         }
 
         return false;

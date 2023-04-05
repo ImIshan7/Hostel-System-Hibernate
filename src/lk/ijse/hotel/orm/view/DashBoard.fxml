@@ -81,7 +81,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="76.0" layoutY="658.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView disable="true" fitHeight="51.0" fitWidth="55.0" layoutX="76.0" layoutY="658.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons8-back-arrow-96.png" />
          </image>

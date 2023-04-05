@@ -14,7 +14,7 @@ public class SessionFactoryConfiguaration {
 
 
         private static SessionFactoryConfiguaration factoryConfiguration;
-        private SessionFactory sessionFactory;
+        private final SessionFactory sessionFactory;
 
         private SessionFactoryConfiguaration(){
 

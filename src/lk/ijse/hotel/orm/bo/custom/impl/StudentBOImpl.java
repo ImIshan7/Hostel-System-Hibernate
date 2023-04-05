@@ -43,13 +43,13 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean saveStudent(StudentDTO studentDTO) throws Exception {
+    public String saveStudent(StudentDTO studentDTO) throws Exception {
         session=SessionFactoryConfiguaration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
         try{
             studentDAO.setSession(session);
-            studentDAO.save(
+           String id= studentDAO.save(
                     new Student(
                             studentDTO.getId(),
                             studentDTO.getName(),
@@ -60,12 +60,14 @@ public class StudentBOImpl implements StudentBO {
                     ));
             transaction.commit();
             session.close();
-            return true;
+            return id;
         }catch (Exception e){
             transaction.rollback();
+            session.close();
+            return null;
         }
 
-        return false;
+
     }
 
     @Override
@@ -104,22 +106,25 @@ public class StudentBOImpl implements StudentBO {
         try {
             studentDAO.setSession(session);
             studentDAO.delete(
-                    new Student(
-                            studentDTO.getId(),
-                            studentDTO.getName(),
-                            studentDTO.getAddress(),
-                            studentDTO.getContactNo(),
-                            studentDTO.getDob(),
-                            studentDTO.getGender()
-                    ));
-            transaction.commit();
-            session.close();
-            return true;
+                   new Student(
+                           studentDTO.getId(),
+                           studentDTO.getName(),
+                           studentDTO.getAddress(),
+                           studentDTO.getContactNo(),
+                           studentDTO.getDob(),
+                           studentDTO.getGender()
+                   )
+           );
+           transaction.commit();
+           session.close();
+           return true;
         }catch (Exception e){
+            e.printStackTrace();
             transaction.rollback();
+            session.close();
         }
-
         return false;
+
     }
 
     @Override

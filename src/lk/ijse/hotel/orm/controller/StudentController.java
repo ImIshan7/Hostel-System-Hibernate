@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.hotel.orm.bo.BOFactory;
 import lk.ijse.hotel.orm.bo.custom.StudentBO;
+import lk.ijse.hotel.orm.dao.custom.StudentDAO;
 import lk.ijse.hotel.orm.dto.StudentDTO;
 
 import java.io.IOException;
@@ -90,14 +91,12 @@ public class StudentController {
     private TextField txtStudentName;
 
 
-    private StudentBO studentBO= (StudentBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.Student);
+     StudentBO studentBO= (StudentBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.Student);
 
-    public static ObservableList obList = FXCollections.observableArrayList();
 
     public void initialize() throws Exception {
 
-
-        //iniUI();
+        getData();
         loadAllStudents();
 
         ColID.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -111,6 +110,7 @@ public class StudentController {
     }
 
 
+
     public void clear()
 
     {
@@ -121,6 +121,7 @@ public class StudentController {
         txtStudentDOB.clear();
         txtStudentAge.clear();
     }
+
 
     public void iniUI(){
         txtStudentID.setDisable(true);
@@ -134,11 +135,18 @@ public class StudentController {
 
     }
 
+
     private void loadAllStudents() throws Exception {
         tblStudent.getItems().clear();
-        List<StudentDTO> studentDTOS = studentBO.loadAll();
-        ObservableList<StudentDTO> observableList= FXCollections.observableList(studentDTOS);
-        tblStudent.setItems(observableList);
+
+        try{
+            ArrayList<StudentDTO>arrayList= (ArrayList<StudentDTO>) studentBO.loadAll();
+            for (StudentDTO s:arrayList){
+                tblStudent.getItems().add(new StudentDTO(s.getId(),s.getName(),s.getAddress(),s.getContactNo(),s.getDob(),s.getGender()));
+            }
+        } catch (Exception e){
+
+        }
     }
 
 
@@ -147,18 +155,27 @@ public class StudentController {
     void btnSaveOnAction(ActionEvent event) {
 
         try {
-            boolean isAdded = studentBO.saveStudent(new StudentDTO(txtStudentID.getText(),txtStudentName.getText(),
-                    txtStudentAddress.getText(),txtStudentContact.getText(),txtStudentDOB.getText(),
-                    txtStudentAge.getText()));
+            String saveID = studentBO.saveStudent(
+                    new StudentDTO(
+                            txtStudentID.getText(),
+                            txtStudentName.getText(),
+                            txtStudentAddress.getText(),
+                            txtStudentContact.getText(),
+                            txtStudentDOB.getText(),
+                            txtStudentAge.getText()
+                    )
+            );
+            System.out.println(studentBO);
 
-            if (isAdded) {
+            if (saveID!=null){
+                clear();
                 new Alert(Alert.AlertType.CONFIRMATION, "Student Save Successfully!").show();
-                iniUI();
-                  initialize();
-
-            } else {
+                tblStudent.getItems().clear();
+                loadAllStudents();
+            }else {
                 new Alert(Alert.AlertType.WARNING, "Something happened!").show();
             }
+
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (Exception e) {
@@ -170,16 +187,27 @@ public class StudentController {
     @FXML
     void btnUpdateOnAction(ActionEvent event) throws Exception {
 
-        boolean isUpdate =  studentBO.updateStudent(new StudentDTO(txtStudentID.getText(),txtStudentName.getText(),
-                txtStudentAddress.getText(),txtStudentContact.getText(),txtStudentDOB.getText(),
-                txtStudentAge.getText()));
+        StudentDTO studentDTO = new StudentDTO(
+                txtStudentID.getText(),
+                txtStudentName.getText(),
+                txtStudentAddress.getText(),
+                txtStudentContact.getText(),
+                txtStudentDOB.getText(),
+                txtStudentAge.getText()
+        );
+
+        System.out.println(studentDTO);
+
+        boolean isUpdate =  studentBO.updateStudent(studentDTO);
+
 
         if (isUpdate) {
 
             new Alert(Alert.AlertType.CONFIRMATION, "Student Update Successfully!").show();
+            clear();
+            tblStudent.getItems().clear();
+            loadAllStudents();
 
-          iniUI();
-            initialize();
         } else {
             new Alert(Alert.AlertType.WARNING, "Something happened!").show();
         }
@@ -188,43 +216,41 @@ public class StudentController {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) throws Exception {
-        StudentDTO studentDTO=new StudentDTO();
-        String id = tblStudent.getSelectionModel().getSelectedItem().getId();
 
 
-        Alert alert = new Alert(Alert.AlertType.WARNING, "Are You Sure You Want To Delete These Customer ?", ButtonType.YES, ButtonType.NO);
-        Optional<ButtonType> result = alert.showAndWait();
+        StudentDTO studentDTO = new StudentDTO(
+                txtStudentID.getText(),
+                txtStudentName.getText(),
+                txtStudentAddress.getText(),
+                txtStudentContact.getText(),
+                txtStudentDOB.getText(),
+                txtStudentAge.getText()
+        );
 
-        if (result.get()==ButtonType.YES){
-            try {
-              boolean isDeleted =  studentBO.deleteStudent(studentDTO);
-                tblStudent.getItems().remove(tblStudent.getSelectionModel().getSelectedItem());
-                tblStudent.getSelectionModel().clearSelection();
-                iniUI();
-                if (isDeleted) {
+        System.out.println(studentDTO);
+        try {
+            boolean isDeleted = studentBO.deleteStudent(
+                    studentDTO
+            );
 
-                    new Alert(Alert.AlertType.CONFIRMATION, "Customer Deleted!").show();
+            if (isDeleted){
 
+                new Alert(Alert.AlertType.CONFIRMATION, "Student Delete Successfully!").show();
+                clear();
+                tblStudent.getItems().clear();
+                loadAllStudents();
 
-
-                } else new Alert(Alert.AlertType.WARNING, "Something happened!").show();
-
-            }catch (Exception e){
-
+            }else {
+                new Alert(Alert.AlertType.WARNING, "Something happened!").show();
             }
+
+        }catch (Exception e){
+
         }
 
-
     }
 
-    @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
 
-
-        Stage stage = (Stage) Student.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../view/DashBoard.fxml")))));
-
-    }
 
     @FXML
     void txtStudentAddressKeyTypeOnAction(KeyEvent event) {
@@ -255,5 +281,32 @@ public class StudentController {
     void txtStudentNameKeyTypeOnAction(KeyEvent event) {
 
     }
+
+    void getData(){
+        tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+
+
+            if (newValue != null) {
+                txtStudentID.setText(newValue.getId());
+                txtStudentName.setText(newValue.getName());
+                txtStudentAddress.setText(newValue.getAddress());
+                txtStudentDOB.setText(newValue.getDob());
+                txtStudentContact.setText(newValue.getContactNo());
+                txtStudentAge.setText(newValue.getDob());
+
+            }
+        });
+    }
+
+
+    @FXML
+    void btnBackOnAction(ActionEvent event) throws IOException {
+
+
+        Stage stage = (Stage) Student.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../view/DashBoard.fxml")))));
+
+    }
+
 
 }

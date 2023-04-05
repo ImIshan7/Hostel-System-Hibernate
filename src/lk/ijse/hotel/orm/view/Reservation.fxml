@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="Reservation" prefHeight="674.0" prefWidth="1009.0" styleClass="backgroundcolor" stylesheets="@css/MetropolitantColourSchema.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotel.orm.controller.ReservationController">
    <children>
       <AnchorPane layoutX="30.0" layoutY="68.0" prefHeight="269.0" prefWidth="959.0" styleClass="topPaneBackground6" stylesheets="@css/MetropolitantColourSchema.css">
@@ -73,7 +72,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="814.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView disable="true" fitHeight="35.0" fitWidth="42.0" layoutX="814.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/icons8-add-new-96.png" />
                </image>
@@ -115,17 +114,17 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="840.0" layoutY="496.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView disable="true" fitHeight="35.0" fitWidth="42.0" layoutX="840.0" layoutY="496.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons8-broom-96.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="840.0" layoutY="572.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView disable="true" fitHeight="35.0" fitWidth="42.0" layoutX="840.0" layoutY="572.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons8-back-arrow-96.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="840.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView disable="true" fitHeight="35.0" fitWidth="42.0" layoutX="840.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons8-check-mark-button-96.png" />
          </image>
@@ -140,5 +139,10 @@
             <Image url="@assets/icons8-hostel-64.png" />
          </image>
       </ImageView>
+      <Label layoutX="400.0" layoutY="8.0" prefHeight="51.0" prefWidth="219.0" text="RESERVATION" textFill="#0eff01">
+         <font>
+            <Font name="Book Antiqua Bold" size="28.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
