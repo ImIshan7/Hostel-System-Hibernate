@@ -1,5 +1,7 @@
 package lk.ijse.hotel.orm.dao;
 
+import com.sun.xml.bind.v2.model.core.ID;
+
 import java.util.List;
 
 public interface CrudDAO<T> extends SuperDAO{

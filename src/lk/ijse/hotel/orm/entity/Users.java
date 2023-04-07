@@ -18,25 +18,18 @@ public class Users {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "contactName")
+    @Column(name = "contact")
     private String contact;
 
-    @Column(name = "accountType")
-    private String type;
-
-    @Column(name = "isActivated")
-    private boolean isEnabled;
 
     public Users() {
     }
 
-    public Users(String id, String userName, String password, String contact, String type, boolean isEnabled) {
+    public Users(String id, String userName, String password, String contact) {
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.contact = contact;
-        this.type = type;
-        this.isEnabled = isEnabled;
     }
 
     public String getId() {
@@ -71,22 +64,6 @@ public class Users {
         this.contact = contact;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public boolean isEnabled() {
-        return isEnabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        isEnabled = enabled;
-    }
-
     @Override
     public String toString() {
         return "Users{" +
@@ -94,8 +71,6 @@ public class Users {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", contact='" + contact + '\'' +
-                ", type='" + type + '\'' +
-                ", isEnabled=" + isEnabled +
                 '}';
     }
 }

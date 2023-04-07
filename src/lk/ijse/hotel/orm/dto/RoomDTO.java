@@ -7,7 +7,7 @@ public class RoomDTO {
     private String keyMoney;
     private int qty;
 
-    public RoomDTO() {
+    public RoomDTO(String text, String txtUserNameText, String txtUserPasswordText, String txtUserContactText) {
     }
 
     public RoomDTO(String id, String type, String keyMoney, int qty) {

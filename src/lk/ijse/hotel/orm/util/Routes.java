@@ -1,5 +1,5 @@
 package lk.ijse.hotel.orm.util;
 
 public enum Routes {
-    DASHBOARD,STUDENT,ROOM,RESERVATION,LOGIN,
+    DASHBOARD,STUDENT,ROOM,RESERVATION,LOGIN,USERS,USERSIGNUP,
 }

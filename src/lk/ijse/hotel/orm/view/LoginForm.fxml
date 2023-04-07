@@ -15,7 +15,7 @@
             <Image url="@assets/7932598.jpg" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="Loginform" layoutX="815.0" layoutY="72.0" prefHeight="644.0" prefWidth="513.0" styleClass="circleWhite2" stylesheets="@css/style.css">
+      <AnchorPane fx:id="Loginform" layoutX="806.0" layoutY="78.0" prefHeight="630.0" prefWidth="520.0" styleClass="circleWhite2" stylesheets="@css/style.css">
          <children>
             <Label layoutX="38.0" layoutY="36.0" prefHeight="77.0" prefWidth="187.0" text="HELLO!">
                <font>
@@ -29,31 +29,31 @@
             </Label>
             <Label layoutX="31.0" layoutY="190.0" prefHeight="54.0" prefWidth="314.0" text="Conutinue To Sign in,">
                <font>
-                  <Font name="System Bold" size="19.0" />
+                  <Font name="Franklin Gothic Heavy Italic" size="21.0" />
                </font>
             </Label>
             <ImageView fitHeight="54.0" fitWidth="58.0" layoutX="55.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="54.0" fitWidth="58.0" layoutX="65.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/icons8-user-male.gif" />
+                  <Image url="@assets/icons8-schoolboy-at-a-desk-90.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txtusername" layoutX="133.0" layoutY="280.0" onAction="#btnusernameOnAction" prefHeight="37.0" prefWidth="267.0" promptText="User Name" styleClass="topPaneBackground4" stylesheets="@css/style.css">
+            <TextField fx:id="txtusername" layoutX="133.0" layoutY="280.0" prefHeight="37.0" prefWidth="267.0" promptText="User Name" styleClass="topPaneBackground4" stylesheets="@css/style.css">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextField>
-            <ImageView fitHeight="54.0" fitWidth="58.0" layoutX="65.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="54.0" fitWidth="58.0" layoutX="65.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/icons8-lock.gif" />
+                  <Image url="@assets/icons8-secure-50.png" />
                </image>
             </ImageView>
-            <Button fx:id="nextID" layoutX="334.0" layoutY="464.0" mnemonicParsing="false" onAction="#btnNextOnAction" prefHeight="44.0" prefWidth="100.0" styleClass="circleUpdate" stylesheets="@css/style.css" text="Next -&gt;">
+            <Button fx:id="nextID" layoutX="339.0" layoutY="540.0" mnemonicParsing="false" onAction="#btnNextOnAction" prefHeight="44.0" prefWidth="122.0" styleClass="circleUpdate" stylesheets="@css/style.css" text="Login">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Button>
-            <TextField fx:id="txtPassword" layoutX="133.0" layoutY="376.0" onAction="#btnPasswordOnAction" prefHeight="37.0" prefWidth="267.0" promptText="Password" styleClass="topPaneBackground4" stylesheets="@css/MetropolitantColourSchema.css">
+            <TextField fx:id="txtPassword" layoutX="133.0" layoutY="393.0" prefHeight="37.0" prefWidth="267.0" promptText="Password" styleClass="topPaneBackground4" stylesheets="@css/MetropolitantColourSchema.css">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -63,6 +63,26 @@
                   <Image url="@assets/icons8-hostel-64.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="54.0" fitWidth="58.0" layoutX="65.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/icons8-user-64.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="132.0" layoutY="540.0" mnemonicParsing="false" onAction="#btnUserSignUpOnAction" prefHeight="44.0" prefWidth="132.0" styleClass="buttonColour" stylesheets="@css/MetropolitantColourSchema.css" text="User Sign Up">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblPassword" layoutX="142.0" layoutY="430.0" prefHeight="37.0" prefWidth="236.0" textFill="RED">
+               <font>
+                  <Font name="Arial Black" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUserName" layoutX="142.0" layoutY="317.0" prefHeight="37.0" prefWidth="236.0" textFill="RED">
+               <font>
+                  <Font name="Arial Black" size="15.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

@@ -6,19 +6,16 @@ public class UsersDTO {
     private String userName;
     private String password;
     private String contact;
-    private String type;
-    private boolean isEnabled;
 
     public UsersDTO() {
     }
 
-    public UsersDTO(String id, String userName, String password, String contact, String type, boolean isEnabled) {
+    public UsersDTO(String id, String userName, String password, String contact) {
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.contact = contact;
-        this.type = type;
-        this.isEnabled = isEnabled;
+
     }
 
     public String getId() {
@@ -53,19 +50,4 @@ public class UsersDTO {
         this.contact = contact;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public boolean isEnabled() {
-        return isEnabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        isEnabled = enabled;
-    }
 }

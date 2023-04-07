@@ -35,6 +35,13 @@ public class DashBoardController {
 
     }
 
+    public void btnUserOnAction(ActionEvent event) throws IOException {
+
+        Navigation.navigation(Routes.USERS,SupDashboard);
+
+    }
+
+
     @FXML
     void btnexistOnAction(ActionEvent event) {
         System.exit(0);
@@ -45,4 +52,6 @@ public class DashBoardController {
 
         Navigation.navigation(Routes.LOGIN,DashBoard);
     }
+
+
 }

@@ -18,6 +18,7 @@ public class RoomBOImpl implements RoomBO {
 
     private Session session;
     @Override
+
     public List<RoomDTO> loadAllRoom() throws Exception {
         session= SessionFactoryConfiguaration.getInstance().getSession();
         roomDAO.setSession(session);

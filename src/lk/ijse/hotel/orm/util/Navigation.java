@@ -46,11 +46,28 @@ private static AnchorPane DashBoard;
         }
 
         switch (routes) {
+            case USERS:
+                window.setTitle("USERS");
+                initUI("Users.fxml");
+                break;
+        }
+
+
+
+        switch (routes) {
             case LOGIN:
                 window.setTitle("LOGIN");
                 initUI("LoginForm.fxml");
                 break;
         }
+
+        switch (routes) {
+            case USERSIGNUP:
+                window.setTitle("USERSIGNUP");
+                initUI("UserSignUp.fxml");
+                break;
+        }
+
 
     }
 

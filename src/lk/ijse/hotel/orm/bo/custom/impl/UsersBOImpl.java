@@ -19,6 +19,7 @@ public class UsersBOImpl implements UsersBO {
     @Override
     public List<UsersDTO> loadAll() throws Exception {
         session= SessionFactoryConfiguaration.getInstance().getSession();
+        userDAO.setSession(session);
 
         List<Users> users = userDAO.loadAll();
         List<UsersDTO> usersDTOS=new ArrayList<>();
@@ -29,9 +30,8 @@ public class UsersBOImpl implements UsersBO {
                             users1.getId(),
                             users1.getUserName(),
                             users1.getPassword(),
-                            users1.getContact(),
-                            users1.getType(),
-                            users1.isEnabled()
+                            users1.getContact()
+
                     )
             );
         }
@@ -51,15 +51,17 @@ public class UsersBOImpl implements UsersBO {
                             usersDTO.getId(),
                             usersDTO.getUserName(),
                             usersDTO.getPassword(),
-                            usersDTO.getContact(),
-                            usersDTO.getType(),
-                            usersDTO.isEnabled()
+                            usersDTO.getContact()
+
                     )
             );
             transaction.commit();
             session.close();
+            return true;
+
         }catch (Exception e){
             transaction.rollback();
+            session.close();
         }
 
         return false;
@@ -78,15 +80,16 @@ public class UsersBOImpl implements UsersBO {
                             usersDTO.getId(),
                             usersDTO.getUserName(),
                             usersDTO.getPassword(),
-                            usersDTO.getContact(),
-                            usersDTO.getType(),
-                            usersDTO.isEnabled()
+                            usersDTO.getContact()
+
                     )
             );
             transaction.commit();
             session.close();
+            return true;
         }catch (Exception e){
             transaction.rollback();
+            session.close();
         }
 
         return false;
@@ -105,15 +108,18 @@ public class UsersBOImpl implements UsersBO {
                             usersDTO.getId(),
                             usersDTO.getUserName(),
                             usersDTO.getPassword(),
-                            usersDTO.getContact(),
-                            usersDTO.getType(),
-                            usersDTO.isEnabled()
+                            usersDTO.getContact()
+
                     )
             );
             transaction.commit();
             session.close();
+
+            return true;
+
         }catch (Exception e){
             transaction.rollback();
+            session.close();
         }
 
         return false;
@@ -121,6 +127,8 @@ public class UsersBOImpl implements UsersBO {
 
     @Override
     public String generateNextUserID() throws Exception {
+        session=SessionFactoryConfiguaration.getInstance().getSession();
+        userDAO.setSession(session);
         return userDAO.generateID();
     }
 }

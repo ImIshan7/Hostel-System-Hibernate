@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="DashBoard" prefHeight="768.0" prefWidth="1366.0" styleClass="buttonColour" stylesheets="@css/MetropolitantColourSchema.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotel.orm.controller.DashBoardController">
    <children>
-      <AnchorPane fx:id="MainMenuID" layoutX="4.0" layoutY="129.0" prefHeight="435.0" prefWidth="319.0" styleClass="topPaneBackground2" stylesheets="@css/MetropolitantColourSchema.css">
+      <AnchorPane fx:id="MainMenuID" layoutX="4.0" layoutY="129.0" prefHeight="527.0" prefWidth="319.0" styleClass="topPaneBackground2" stylesheets="@css/MetropolitantColourSchema.css">
          <children>
             <Button layoutX="101.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnStudentOnAction" prefHeight="51.0" prefWidth="169.0" styleClass="specialTextColour" stylesheets="@css/style.css" text="Student" textFill="WHITE" wrapText="true">
                <font>
@@ -38,17 +38,27 @@
             </Button>
             <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="27.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/icons8-check-mark-button-96.png" />
+                  <Image url="@assets/icons8-add-new-96.png" />
                </image>
             </ImageView>
-            <Button layoutX="101.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnexistOnAction" prefHeight="51.0" prefWidth="169.0" styleClass="specialTextColour" stylesheets="@css/style.css" text="Exist" textFill="WHITE" wrapText="true">
+            <Button layoutX="98.0" layoutY="425.0" mnemonicParsing="false" onAction="#btnexistOnAction" prefHeight="51.0" prefWidth="169.0" styleClass="specialTextColour" stylesheets="@css/style.css" text="Exist" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Button>
-            <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="27.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="27.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/block.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="98.0" layoutY="328.0" mnemonicParsing="false" onAction="#btnUserOnAction" prefHeight="51.0" prefWidth="169.0" styleClass="specialTextColour" stylesheets="@css/style.css" text="User" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="27.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/icons8-user-64.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
@@ -76,12 +86,12 @@
             <Font name="Arial Black" size="40.0" />
          </font>
       </Label>
-      <Button layoutX="76.0" layoutY="658.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="51.0" prefWidth="115.0" styleClass="circleWhite" stylesheets="@css/style.css" text="      Back">
+      <Button layoutX="70.0" layoutY="684.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="51.0" prefWidth="115.0" styleClass="circleWhite" stylesheets="@css/style.css" text="      Back">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <ImageView disable="true" fitHeight="51.0" fitWidth="55.0" layoutX="76.0" layoutY="658.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView disable="true" fitHeight="51.0" fitWidth="55.0" layoutX="70.0" layoutY="684.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/icons8-back-arrow-96.png" />
          </image>

@@ -41,23 +41,15 @@ public class UsersDAOImpl implements UsersDAO {
 
     @Override
     public String generateID() throws Exception {
-        Users users = null;
-        try {
-            String sqlQuery="FROM Reservation ORDER BY id DESC";
-            Query query = session.createQuery(sqlQuery);
-            query.setMaxResults(1);
-            users = (Users) query.uniqueResult();
-        }catch (Exception e){
-
+        String sql="FROM Users ORDER BY id DESC";
+        Users student= (Users) session.createQuery(sql).setMaxResults(1).uniqueResult();
+        session.close();
+        if (student!=null){
+            String lastId=student.getId();
+            int newCustomerId=Integer.parseInt(lastId.replace("U00-",""))+1;
+            return String.format("U00-%03d",newCustomerId);
         }
-
-        String lastID=users.getId();
-
-        if (lastID != null){
-            int newUserID=Integer.parseInt(lastID.replace("U-",""))+1;
-            return String.format("U-%03d",newUserID);
-        }
-        return "U-001";
+        return "U00-001";
     }
 
     @Override
