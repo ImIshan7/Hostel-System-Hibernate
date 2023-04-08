@@ -46,28 +46,30 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public String generateID() throws Exception {
-        Reservation reservation = null;
-        try {
-            String sqlQuery="FROM Reservation ORDER BY id DESC";
-            Query query = session.createQuery(sqlQuery);
-            query.setMaxResults(1);
-            reservation = (Reservation) query.uniqueResult();
-        }catch (Exception e){
-
+        String sql="FROM Reservation ORDER BY id DESC";
+        Reservation reservation= (Reservation) session.createQuery(sql).setMaxResults(1).uniqueResult();
+        session.close();
+        if (reservation!=null){
+            String lastId=reservation.getResId();
+            int newCustomerId=Integer.parseInt(lastId.replace("RE0-",""))+1;
+            return String.format("RE0-%03d",newCustomerId);
         }
-
-        String lastID=reservation.getResID();
-
-        if (lastID != null){
-            int newReserveID=Integer.parseInt(lastID.replace("REV-",""))+1;
-            return String.format("REV-%03d",newReserveID);
-        }
-        return "REV-001";
+        return "RE0-001";
     }
 
     @Override
     public void setSession(Session session) throws Exception {
         this.session=session;
 
+    }
+
+    @Override
+    public boolean changeCheckBOXValue(String id, String status) {
+        String hql="update Reservation r set r.status=:sts Where r.resId=:rid";
+        Query query=session.createQuery(hql);
+        query.setParameter("sts",status);
+        query.setParameter("rid",id);
+        int value= query.executeUpdate();
+        return value>=0;
     }
 }

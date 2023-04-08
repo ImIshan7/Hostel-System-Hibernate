@@ -4,49 +4,47 @@ package lk.ijse.hotel.orm.entity;
 import javax.persistence.*;
 import java.sql.Date;
 
+
 @Entity
+@Table(name = "Reservation")
 public class Reservation {
-
-
     @Id
-    @Column(length = 10,name = "res_id")
-    private String resID;
-
-    @Column(name = "date")
+    @Column(name = "reservationId",length = 10)
+    private String resId;
+    @Column(name = "data")
     private Date date;
+    @Column(name = "status")
+    private String status;
+
     @ManyToOne
-    @JoinColumn(name = "student_id",insertable = false ,updatable = false)
+    @JoinColumn(name = "studentId")
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name = "room_type_id",updatable = false,insertable = false)
+    @JoinColumn(name = "roomTypeId")
     private Room room;
-
-    @Column(name = "status")
-    private String status;
 
     public Reservation(String resId, Date date, String status) {
     }
 
-    public Reservation(String resID, Date date, Student student, Room room, String status) {
-        this.resID = resID;
+    public Reservation(String resId, Date date, String status, Student student, Room room) {
+        this.resId = resId;
         this.date = date;
+        this.status = status;
         this.student = student;
         this.room = room;
-        this.status = status;
     }
 
     public Reservation() {
 
     }
 
-
-    public String getResID() {
-        return resID;
+    public String getResId() {
+        return resId;
     }
 
-    public void setResID(String resID) {
-        this.resID = resID;
+    public void setResId(String resId) {
+        this.resId = resId;
     }
 
     public Date getDate() {
@@ -55,6 +53,14 @@ public class Reservation {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Student getStudent() {
@@ -73,22 +79,14 @@ public class Reservation {
         this.room = room;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     @Override
     public String toString() {
         return "Reservation{" +
-                "resID='" + resID + '\'' +
+                "resId='" + resId + '\'' +
                 ", date=" + date +
+                ", status='" + status + '\'' +
                 ", student=" + student +
                 ", room=" + room +
-                ", status='" + status + '\'' +
                 '}';
     }
 }

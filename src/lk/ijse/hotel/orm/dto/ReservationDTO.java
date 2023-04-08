@@ -6,29 +6,33 @@ import lk.ijse.hotel.orm.entity.Student;
 import java.sql.Date;
 
 public class ReservationDTO {
-    private String resID;
+    private String resId;
     private Date date;
-    private Student student;
-    private Room room;
     private String status;
+    private StudentDTO studentDTO;
+    private RoomDTO roomDTO;
+    private String studentId;
+    private String roomId;
 
-    public ReservationDTO() {
+    public ReservationDTO(String resId, Date date, String status, StudentDTO studentDTO, RoomDTO roomDTO) {
     }
 
-    public ReservationDTO(String resID, Date date, Student student, Room room, String status) {
-        this.resID = resID;
+    public ReservationDTO(String resId, Date date, String status, StudentDTO studentDTO, RoomDTO roomDTO, String studentId, String roomId) {
+        this.resId = resId;
         this.date = date;
-        this.student = student;
-        this.room = room;
         this.status = status;
+        this.studentDTO = studentDTO;
+        this.roomDTO = roomDTO;
+        this.studentId = studentId;
+        this.roomId = roomId;
     }
 
-    public String getResID() {
-        return resID;
+    public String getResId() {
+        return resId;
     }
 
-    public void setResID(String resID) {
-        this.resID = resID;
+    public void setResId(String resId) {
+        this.resId = resId;
     }
 
     public Date getDate() {
@@ -39,22 +43,6 @@ public class ReservationDTO {
         this.date = date;
     }
 
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -63,14 +51,48 @@ public class ReservationDTO {
         this.status = status;
     }
 
+    public StudentDTO getStudentDTO() {
+        return studentDTO;
+    }
+
+    public void setStudentDTO(StudentDTO studentDTO) {
+        this.studentDTO = studentDTO;
+    }
+
+    public RoomDTO getRoomDTO() {
+        return roomDTO;
+    }
+
+    public void setRoomDTO(RoomDTO roomDTO) {
+        this.roomDTO = roomDTO;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
+
     @Override
     public String toString() {
         return "ReservationDTO{" +
-                "resID='" + resID + '\'' +
+                "resId='" + resId + '\'' +
                 ", date=" + date +
-                ", student=" + student +
-                ", room=" + room +
                 ", status='" + status + '\'' +
+                ", studentDTO=" + studentDTO +
+                ", roomDTO=" + roomDTO +
+                ", studentId='" + studentId + '\'' +
+                ", roomId='" + roomId + '\'' +
                 '}';
     }
 }

@@ -18,7 +18,7 @@ public class DashBoardController {
     @FXML
     void btnBookOnAction(ActionEvent event) throws IOException {
 
-        Navigation.navigation(Routes.RESERVATION,SupDashboard);
+        Navigation.navigation(Routes.RESERVATION,DashBoard);
 
     }
 

@@ -64,4 +64,13 @@ public class StudentDAOImpl implements StudentDAO {
     public void setSession(Session session) throws Exception {
         this.session=session;
     }
+
+    @Override
+    public List<String> getIds() throws Exception {
+        String hql = "SELECT id from Student ";
+        Query<String> query = session.createQuery(hql);
+        List<String> results = query.list();
+        session.close();
+        return results;
+    }
 }
