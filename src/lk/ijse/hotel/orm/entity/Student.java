@@ -2,6 +2,7 @@ package lk.ijse.hotel.orm.entity;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,8 +26,8 @@ public class Student {
     @Column(name = "gender")
     private String gender;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "student")
-    private List<Reservation> reservationList;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "student")
+    private List<Reservation> reservationList=new ArrayList<>();
 
 
 

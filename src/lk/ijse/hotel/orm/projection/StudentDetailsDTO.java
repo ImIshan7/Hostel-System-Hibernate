@@ -16,15 +16,16 @@ public class StudentDetailsDTO {
     public StudentDetailsDTO() {
     }
 
-    public StudentDetailsDTO(String studentId, String name, String contact, Date date, String resId, String roomId, Room room) {
+    public StudentDetailsDTO(String studentId, String name, String contact, Date date, String resId, Room room) {
         this.studentId = studentId;
         this.name = name;
         this.contact = contact;
         this.date = date;
         this.resId = resId;
-        this.roomId = roomId;
         this.room = room;
+        roomId=room.getId();
     }
+
 
     public String getStudentId() {
         return studentId;
@@ -80,18 +81,8 @@ public class StudentDetailsDTO {
 
     public void setRoom(Room room) {
         this.room = room;
+        roomId=room.getId();
     }
 
-    @Override
-    public String toString() {
-        return "StudentDetailsDTO{" +
-                "studentId='" + studentId + '\'' +
-                ", name='" + name + '\'' +
-                ", contact='" + contact + '\'' +
-                ", date=" + date +
-                ", resId='" + resId + '\'' +
-                ", roomId='" + roomId + '\'' +
-                ", room=" + room +
-                '}';
-    }
+
 }

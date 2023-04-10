@@ -2,6 +2,7 @@ package lk.ijse.hotel.orm.entity;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,8 +22,8 @@ public class Room {
     private int qty;
 
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "room")
-    private List<Reservation> reservationList;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "room")
+    private List<Reservation> reservationList=new ArrayList<>();
 
 
     public Room() {
