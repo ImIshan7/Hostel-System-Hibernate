@@ -15,7 +15,7 @@
             <Image url="@assets/4957136.jpg" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="Loginform" layoutX="662.0" layoutY="56.0" prefHeight="669.0" prefWidth="690.0" styleClass="circleWhite" stylesheets="@css/style.css">
+      <AnchorPane fx:id="Loginform" layoutX="662.0" layoutY="50.0" prefHeight="669.0" prefWidth="690.0" styleClass="circleWhite" stylesheets="@css/style.css">
          <children>
             <Label layoutX="46.0" layoutY="14.0" prefHeight="77.0" prefWidth="187.0" text="HELLO!">
                <font>
@@ -32,7 +32,7 @@
                   <Font name="Franklin Gothic Heavy Italic" size="19.0" />
                </font>
             </Label>
-            <TextField fx:id="txtUserName" layoutX="108.0" layoutY="301.0" prefHeight="54.0" prefWidth="385.0" promptText="User Name" styleClass="topPaneBackground6" stylesheets="@css/style.css">
+            <TextField fx:id="txtUserName" layoutX="108.0" layoutY="301.0" prefHeight="54.0" prefWidth="385.0" promptText="User Name" styleClass="buttonColour" stylesheets="@css/style.css">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -42,17 +42,17 @@
                   <Image url="@assets/icons8-hostel-64.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txtUserID" cache="true" layoutX="108.0" layoutY="227.0" prefHeight="54.0" prefWidth="385.0" promptText="User ID" styleClass="topPaneBackground6" stylesheets="@css/style.css">
+            <TextField fx:id="txtUserID" cache="true" layoutX="108.0" layoutY="227.0" prefHeight="54.0" prefWidth="385.0" promptText="User ID" styleClass="buttonColour" stylesheets="@css/style.css">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtUserPassword" layoutX="108.0" layoutY="381.0" prefHeight="54.0" prefWidth="385.0" promptText="User Password" styleClass="topPaneBackground6" stylesheets="@css/style.css">
+            <TextField fx:id="txtUserPassword" layoutX="108.0" layoutY="381.0" prefHeight="54.0" prefWidth="385.0" promptText="User Password" styleClass="buttonColour" stylesheets="@css/style.css">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtUserEmail" layoutX="111.0" layoutY="461.0" prefHeight="54.0" prefWidth="385.0" promptText="User Email" styleClass="topPaneBackground6" stylesheets="@css/style.css">
+            <TextField fx:id="txtUserEmail" layoutX="111.0" layoutY="461.0" prefHeight="54.0" prefWidth="385.0" promptText="User Email" styleClass="buttonColour" stylesheets="@css/style.css">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

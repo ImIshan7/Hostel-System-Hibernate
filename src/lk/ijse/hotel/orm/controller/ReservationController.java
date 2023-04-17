@@ -238,7 +238,7 @@ public class ReservationController {
         cmdStudentID.setDisable(false);
         cmdRoomTypeID.setDisable(false);
         txtReservationID.setText(generateNewIds());
-        btnsave.setText("Save Reservation");
+        btnsave.setText("Reserve");
         btnsave.setDisable(false);
         btnClear.setDisable(false);
 
@@ -248,10 +248,10 @@ public class ReservationController {
     @FXML
     void btnSaveOnAction(ActionEvent event) throws Exception {
 
-        if (btnsave.getText().equals("Save Reservation")){
+        if (btnsave.getText().equals("Reserve")){
             boolean isSaved=reserveRoom(getData());
             if (isSaved){
-                new Alert(Alert.AlertType.CONFIRMATION, "Room Reserved").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Room Reserved Successfully").show();
                 tblPaidStudents.getItems().clear();
                 tblUnpaidStudents.refresh();
                 loadAll();
@@ -270,7 +270,7 @@ public class ReservationController {
                     tblUnpaidStudents.getItems().clear();
                     tblPaidStudents.getItems().clear();
 
-                    new Alert(Alert.AlertType.CONFIRMATION, "Status updated").show();
+                    new Alert(Alert.AlertType.CONFIRMATION, "Paid successfully").show();
 
                     loadAll();
                     setAllProjection();

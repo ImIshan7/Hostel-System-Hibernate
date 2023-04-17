@@ -1,7 +1,6 @@
 package lk.ijse.hotel.orm.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,15 +12,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.hotel.orm.bo.BOFactory;
 import lk.ijse.hotel.orm.bo.custom.StudentBO;
-import lk.ijse.hotel.orm.dao.custom.StudentDAO;
 import lk.ijse.hotel.orm.dto.StudentDTO;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 public class StudentController {
 
