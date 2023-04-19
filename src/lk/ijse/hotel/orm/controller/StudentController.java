@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StudentController {
 
@@ -86,6 +88,12 @@ public class StudentController {
     @FXML
     private TextField txtStudentName;
 
+    private Matcher StudentIDMatcher;
+    private Matcher StudentNameMatcher;
+    private Matcher StudentAddressMatcher;
+    private Matcher StudentContactMatcher;
+    private Matcher StudentDOBMatcher;
+
 
      StudentBO studentBO= (StudentBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.Student);
 
@@ -103,6 +111,7 @@ public class StudentController {
         ColStudentAge.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
 
+        setPattern();
     }
 
 
@@ -147,8 +156,28 @@ public class StudentController {
 
 
 
+    void setPattern() {
+
+        Pattern IDMatcher = Pattern.compile("^(S0)([0-9]{1})([0-9]{1,})$");
+        StudentIDMatcher = IDMatcher.matcher(txtStudentID.getText());
+
+        Pattern NamePattern = Pattern.compile("^([a-zA-Z]{4,})$");
+        StudentNameMatcher = NamePattern.matcher(txtStudentName.getText());
+
+        Pattern AddressPattern = Pattern.compile("^([a-zA-Z]{4,})$");
+        StudentAddressMatcher = AddressPattern.matcher(txtStudentAddress.getText());
+
+        Pattern ContactPattern = Pattern.compile("^(?:7|0|(?:\\+94))[0-9]{9,10}$");
+        StudentContactMatcher = ContactPattern.matcher(txtStudentContact.getText());
+
+        Pattern DOBPattern = Pattern.compile("\\b\\d{4}-\\d{2}-\\d{2}\\b");
+        StudentDOBMatcher = DOBPattern.matcher(txtStudentDOB.getText());
+    }
+
+
+
     @FXML
-    void btnSaveOnAction(ActionEvent event) {
+    void btnSaveOnAction(ActionEvent event) throws Exception {
 
         try {
             String saveID = studentBO.saveStudent(
@@ -161,6 +190,36 @@ public class StudentController {
                             txtStudentAge.getText()
                     )
             );
+
+            if (StudentIDMatcher.matches()) {
+                if (StudentNameMatcher.matches()) {
+                    if (StudentAddressMatcher.matches()) {
+                        if (StudentContactMatcher.matches()) {
+                            if (StudentDOBMatcher.matches()) {
+
+                            } else {
+                                txtStudentDOB.requestFocus();
+                                lblstudentDOB.setText("invalid Date Of Birth ");
+                            }
+                        } else {
+                            txtStudentContact.requestFocus();
+                            lblstudentContact.setText("invalid Contact ");
+                        }
+                    } else {
+                        txtStudentAddress.requestFocus();
+                        lblstudentAddress.setText("invalid Address ");
+                    }
+                } else {
+                    txtStudentName.requestFocus();
+                    lblstudentName.setText("invalid Name");
+                }
+
+            } else {
+                txtStudentID.requestFocus();
+                lblstudentID.setText("invalid ID ");
+
+            }
+
             System.out.println(studentBO);
 
             if (saveID!=null){
@@ -251,6 +310,16 @@ public class StudentController {
     @FXML
     void txtStudentAddressKeyTypeOnAction(KeyEvent event) {
 
+        lblstudentAddress.setText("");
+
+        Pattern AddressPattern = Pattern.compile("^([a-zA-Z]{4,})$");
+        StudentAddressMatcher = AddressPattern.matcher(txtStudentAddress.getText());
+
+        if (!StudentAddressMatcher.matches()) {
+            txtStudentAddress.requestFocus();
+            lblstudentAddress.setText("invalid Address");
+        }
+
     }
 
     @FXML
@@ -261,20 +330,59 @@ public class StudentController {
     @FXML
     void txtStudentContactTypeOnAction(KeyEvent event) {
 
+        lblstudentContact.setText("");
+
+        Pattern ContactPattern = Pattern.compile("^(?:7|0|(?:\\+94))[0-9]{9,10}$");
+        StudentContactMatcher = ContactPattern.matcher(txtStudentContact.getText());
+
+        if (!StudentContactMatcher .matches()) {
+            txtStudentContact.requestFocus();
+            lblstudentContact.setText("invalid Contact");
+        }
+
     }
 
     @FXML
     void txtStudentDOBKeyTypeOnAction(KeyEvent event) {
+        lblstudentDOB.setText("");
+
+        Pattern DOBPattern = Pattern.compile("\\b\\d{4}-\\d{2}-\\d{2}\\b");
+        StudentDOBMatcher = DOBPattern.matcher(txtStudentDOB.getText());
+
+        if (!StudentDOBMatcher.matches()) {
+            txtStudentDOB.requestFocus();
+            lblstudentDOB.setText("invalid Date Of Birth");
+        }
 
     }
 
     @FXML
     void txtStudentIDKeyTypeOnAction(KeyEvent event) {
 
+        lblstudentID.setText("");
+
+        Pattern IDMatcher = Pattern.compile("^(S0)([0-9]{1})([0-9]{1,})$");
+        StudentIDMatcher = IDMatcher.matcher(txtStudentID.getText());
+
+        if (!StudentIDMatcher.matches()) {
+            txtStudentID.requestFocus();
+            lblstudentID.setText("invalid ID");
+        }
+
     }
 
     @FXML
     void txtStudentNameKeyTypeOnAction(KeyEvent event) {
+
+        lblstudentName.setText("");
+
+        Pattern NamePattern = Pattern.compile("^([a-zA-Z]{4,})$");
+        StudentNameMatcher = NamePattern.matcher(txtStudentName.getText());
+
+        if (!StudentNameMatcher.matches()) {
+            txtStudentName.requestFocus();
+            lblstudentName.setText("invalid Name");
+        }
 
     }
 

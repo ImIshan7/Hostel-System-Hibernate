@@ -20,6 +20,8 @@ import lk.ijse.hotel.orm.dto.UsersDTO;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UsersController {
 
@@ -70,6 +72,11 @@ public class UsersController {
     @FXML
     private TextField txtUserPassword;
 
+    private Matcher UserNameMatcher;
+    private Matcher UserPasswordMatcher;
+    private Matcher UserEmailMatcher;
+
+
 
     UsersBO usersBO= (UsersBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.Users);
 
@@ -83,6 +90,7 @@ public class UsersController {
         ColUserPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
         ColUserContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
 
+        setPattern();
 
     }
 
@@ -94,6 +102,20 @@ public class UsersController {
         ObservableList<UsersDTO> observableList= FXCollections.observableList(studentDTOS);
         tblUsers.setItems(observableList);
     }
+
+
+    void setPattern() {
+
+        Pattern NamePattern = Pattern.compile(".*[a-zA-Z0-9]{4,}");
+        UserNameMatcher = NamePattern.matcher(txtUserName.getText());
+
+        Pattern PasswordPattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+        UserPasswordMatcher = PasswordPattern.matcher(txtUserPassword.getText());
+
+        Pattern EmailPattern = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+        UserEmailMatcher = EmailPattern.matcher(txtUserContact.getText());
+    }
+
 
 
     void clear(){
@@ -116,6 +138,26 @@ public class UsersController {
                 txtUserPassword.getText(),
                 txtUserContact.getText()));
 
+
+            if (UserNameMatcher.matches()) {
+                if (UserPasswordMatcher.matches()) {
+                    if (UserEmailMatcher.matches()) {
+
+
+                    } else {
+                        txtUserContact.requestFocus();
+                        lblUserContact.setText("invalid Email ");
+                    }
+                } else {
+                    txtUserPassword.requestFocus();
+                    lblUserAddress.setText("invalid Password ");
+                }
+            } else {
+                txtUserName.requestFocus();
+                lblUserName.setText("invalid User Name");
+            }
+
+
         if (isSaved){
 
             new Alert(Alert.AlertType.CONFIRMATION, "User Save Successfully!").show();
@@ -131,8 +173,6 @@ public class UsersController {
 
 
     }
-
-
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) throws Exception {
@@ -157,9 +197,7 @@ public class UsersController {
 
         }
 
-
     }
-
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) throws Exception {
@@ -188,7 +226,6 @@ public class UsersController {
 
     }
 
-
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
 
@@ -214,26 +251,53 @@ public class UsersController {
     }
 
 
-
-
-
     @FXML
     void txtStudentAddressKeyTypeOnAction(KeyEvent event) {
+
+        lblUserAddress.setText("");
+
+        Pattern PasswordPattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+        UserPasswordMatcher = PasswordPattern.matcher(txtUserPassword.getText());
+
+        if (!UserPasswordMatcher.matches()) {
+            txtUserPassword.requestFocus();
+            lblUserAddress.setText("invalid Password");
+        }
 
     }
 
     @FXML
     void txtStudentContactTypeOnAction(KeyEvent event) {
 
-    }
+        lblUserContact.setText("");
 
-    @FXML
-    void txtStudentIDKeyTypeOnAction(KeyEvent event) {
+        Pattern EmailPattern = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+        UserEmailMatcher = EmailPattern.matcher(txtUserContact.getText());
+
+        if (!UserEmailMatcher.matches()) {
+            txtUserContact.requestFocus();
+            lblUserContact.setText("invalid Email");
+        }
 
     }
 
     @FXML
     void txtStudentNameKeyTypeOnAction(KeyEvent event) {
+
+        lblUserName.setText("");
+
+        Pattern NamePattern = Pattern.compile(".*[a-zA-Z0-9]{4,}");
+        UserNameMatcher = NamePattern.matcher(txtUserName.getText());
+
+        if (!UserNameMatcher .matches()) {
+            txtUserName.requestFocus();
+            lblUserName.setText("invalid User Name");
+        }
+
+    }
+
+    @FXML
+    void txtStudentIDKeyTypeOnAction(KeyEvent event) {
 
     }
 

@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RoomController {
 
@@ -69,9 +71,13 @@ public class RoomController {
     @FXML
     private TextField txtRoomType;
 
-    RoomBO roomBO= (RoomBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.Rooms);
+    private Matcher RoomIDMatcher;
+    private Matcher RoomTypeMatcher;
+    private Matcher RoomKeymoneyMatcher;
+    private Matcher RoomQtyMatcher;
 
-    public static ObservableList obList = FXCollections.observableArrayList();
+
+    RoomBO roomBO= (RoomBO) BOFactory.getInstance().getBO(BOFactory.BOTypes.Rooms);
 
     public void initialize() throws Exception {
 
@@ -82,6 +88,8 @@ public class RoomController {
         ColType.setCellValueFactory(new PropertyValueFactory<>("type"));
         ColKeyMoney.setCellValueFactory(new PropertyValueFactory<>("keyMoney"));
         ColRoomQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+
+        setPattern();
 
     }
 
@@ -104,6 +112,22 @@ public class RoomController {
     }
 
 
+    void setPattern() {
+
+        Pattern IDMatcher = Pattern.compile("^(R0)([0-9]{1})([0-9]{1,})$");
+        RoomIDMatcher = IDMatcher.matcher(txtRoomID.getText());
+
+        Pattern TypePattern = Pattern.compile("^([a-zA-Z]{4,})$");
+        RoomTypeMatcher = TypePattern.matcher(txtRoomType.getText());
+
+        Pattern MoneyPattern = Pattern.compile("^[0-9]+[.]?[0-9]*$");
+        RoomKeymoneyMatcher = MoneyPattern.matcher(txtRoomMoney.getText());
+
+        Pattern QtyPattern = Pattern.compile("^\\d+$");
+        RoomQtyMatcher = QtyPattern.matcher(txtRoomQty.getText());
+
+    }
+
     @FXML
     void btnSaveOnAction(ActionEvent event) throws Exception {
         boolean isSaved = roomBO.saveRoom(new RoomDTO(
@@ -112,6 +136,32 @@ public class RoomController {
                 txtRoomType.getText(),
                 txtRoomMoney.getText(),
                 Integer.parseInt(txtRoomQty.getText())));
+
+
+        if (RoomIDMatcher.matches()) {
+            if (RoomTypeMatcher.matches()) {
+                if (RoomKeymoneyMatcher.matches()) {
+                    if (RoomQtyMatcher.matches()) {
+
+
+                    } else {
+                        txtRoomQty.requestFocus();
+                        lblRoomQty.setText("invalid Qty ");
+                    }
+                } else {
+                    txtRoomMoney.requestFocus();
+                    lblRoomMoney.setText("invalid Amount ");
+                }
+            } else {
+                txtRoomType.requestFocus();
+                lblRoomType.setText("invalid Room Type");
+            }
+
+        } else {
+            txtRoomID.requestFocus();
+            lblRoomID.setText("invalid ID ");
+
+        }
 
         if (isSaved){
 
@@ -181,8 +231,6 @@ public class RoomController {
     }
 
 
-
-
     void getData(){
         tblRoom.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 
@@ -209,26 +257,63 @@ public class RoomController {
 
 
 
-
-
-
     @FXML
     void txtRoomIDKeyTypeOnAction(KeyEvent event) {
+
+        lblRoomID.setText("");
+
+        Pattern IDMatcher = Pattern.compile("^(R0)([0-9]{1})([0-9]{1,})$");
+        RoomIDMatcher = IDMatcher.matcher(txtRoomID.getText());
+
+        if (!RoomIDMatcher.matches()) {
+            txtRoomID.requestFocus();
+            lblRoomID.setText("invalid ID");
+        }
 
     }
 
     @FXML
     void txtRoomMoneyKeyTypeOnAction(KeyEvent event) {
 
+        lblRoomMoney.setText("");
+
+        Pattern MoneyPattern = Pattern.compile("^[0-9]+[.]?[0-9]*$");
+        RoomKeymoneyMatcher = MoneyPattern.matcher(txtRoomMoney.getText());
+
+        if (!RoomKeymoneyMatcher.matches()) {
+            txtRoomMoney.requestFocus();
+            lblRoomMoney.setText("invalid Amount");
+        }
     }
 
     @FXML
     void txtRoomQtyTypeOnAction(KeyEvent event) {
 
+        lblRoomQty.setText("");
+
+        Pattern QtyPattern = Pattern.compile("^\\d+$");
+        RoomQtyMatcher = QtyPattern.matcher(txtRoomQty.getText());
+
+        if (!RoomQtyMatcher.matches()) {
+            txtRoomQty.requestFocus();
+            lblRoomQty.setText("invalid Qty");
+        }
+
     }
 
     @FXML
     void txtRoomTypKeyTypeOnAction(KeyEvent event) {
+
+
+        lblRoomType.setText("");
+
+        Pattern TypePattern = Pattern.compile("^([a-zA-Z]{4,})$");
+        RoomTypeMatcher = TypePattern.matcher(txtRoomType.getText());
+
+        if (!RoomTypeMatcher .matches()) {
+            txtRoomType.requestFocus();
+            lblRoomType.setText("invalid Type");
+        }
 
     }
 

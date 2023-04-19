@@ -24,7 +24,10 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Label fx:id="lblUserID" layoutX="53.0" layoutY="90.0" prefHeight="24.0" prefWidth="267.0" />
+            <Label fx:id="lblUserID" layoutX="53.0" layoutY="90.0" prefHeight="24.0" prefWidth="267.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
             <Label layoutX="45.0" layoutY="114.0" prefHeight="44.0" prefWidth="238.0" text="User Name" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="22.0" />
@@ -35,7 +38,10 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </TextField>
-            <Label fx:id="lblUserName" layoutX="53.0" layoutY="194.0" prefHeight="24.0" prefWidth="267.0" />
+            <Label fx:id="lblUserName" layoutX="53.0" layoutY="194.0" prefHeight="24.0" prefWidth="267.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
             <Label layoutX="53.0" layoutY="218.0" prefHeight="44.0" prefWidth="238.0" text="Password" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="22.0" />
@@ -46,7 +52,10 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </TextField>
-            <Label fx:id="lblUserAddress" layoutX="53.0" layoutY="295.0" prefHeight="24.0" prefWidth="267.0" />
+            <Label fx:id="lblUserAddress" layoutX="53.0" layoutY="295.0" prefHeight="24.0" prefWidth="267.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
             <Label layoutX="53.0" layoutY="319.0" prefHeight="44.0" prefWidth="238.0" text="Contact " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="22.0" />
@@ -57,7 +66,10 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </TextField>
-            <Label fx:id="lblUserContact" layoutX="53.0" layoutY="395.0" prefHeight="24.0" prefWidth="267.0" />
+            <Label fx:id="lblUserContact" layoutX="53.0" layoutY="395.0" prefHeight="24.0" prefWidth="267.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
          </children>
       </AnchorPane>
       <TableView fx:id="tblUsers" layoutX="410.0" layoutY="98.0" prefHeight="444.0" prefWidth="585.0" styleClass="circle2">

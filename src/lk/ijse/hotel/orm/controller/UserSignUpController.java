@@ -87,7 +87,7 @@ public class UserSignUpController {
         txtUserName.setDisable(true);
         txtUserPassword.setDisable(true);
         txtUserEmail.setDisable(true);
-       // lblPassword.setText("");
+
 
     }
 
@@ -108,6 +108,19 @@ public class UserSignUpController {
         String password=txtUserPassword.getText();
         String email=txtUserEmail.getText();
 
+        if (!userName.matches(".*[a-zA-Z0-9]{4,}")){
+            new Alert(Alert.AlertType.ERROR, "Invalid UserName").show();
+            txtUserName.requestFocus();
+            return;
+        }else if (!password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")){
+            new Alert(Alert.AlertType.ERROR, "Invalid Password").show();
+            txtUserPassword.requestFocus();
+            return;
+        }else if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")){
+            new Alert(Alert.AlertType.ERROR, "Invalid Email").show();
+            txtUserEmail.requestFocus();
+            return;
+        }
 
         if (btnSignUpID.getText().equalsIgnoreCase("Sign UP")){
             usersBO.saveUsers(new UsersDTO(id,userName,password,email));
